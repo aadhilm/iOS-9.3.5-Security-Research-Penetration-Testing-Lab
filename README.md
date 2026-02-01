@@ -40,7 +40,7 @@ All quirks, limitations, and notes in this README are based on real testing, pri
 
 ---
 
-## 🎯 Learning Objectives
+## 🎯 Objectives
 
 * Network discovery and enumeration on restricted systems
 * SSH hardening and recovery on jailbroken iOS
