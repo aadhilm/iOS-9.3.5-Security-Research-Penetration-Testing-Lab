@@ -223,7 +223,7 @@ nmap -unprivileged -n -sT TARGET
 https://drive.google.com/file/d/1K4UNADtX0v_I9rSHr3oDTWV5kkIuMqLp/view
 ## 🖼️ Nmap Scan Screenshot
 
-![Nmap Scan on iOS 9.3.5](nmap.png)
+![Nmap Scan on iOS 9.3.5](ipad.png)
 
 
 These videos intentionally avoid SYN scans, UDP scans, and NSE scripts due to raw socket restrictions on iOS.
