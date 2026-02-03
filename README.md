@@ -359,6 +359,30 @@ Each level emphasizes **analysis over exploitation**.
 
 ---
 
+🧭 Terminal Environment Comparison
+App Store Terminal
+
+Sandbox only
+
+❌ No root
+
+❌ No system files
+
+❌ No real apt / daemons
+
+Safe, limited, for learning commands
+
+Jailbreak Terminal
+
+Real system shell
+
+✅ Root access
+
+✅ Full iOS filesystem
+
+✅ Real apt, SSH, services
+
+Powerful, risky if careless
 ## ✅ Final Notes
 
 > Jailbroken iOS devices are **powerful, constrained, and unforgiving**.
