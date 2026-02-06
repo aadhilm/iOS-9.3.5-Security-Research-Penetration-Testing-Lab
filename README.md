@@ -21,6 +21,21 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](#)
 
 ---
+## 🧪 Lab Scope
+
+### Supported iOS Version
+
+* **iOS 9.3.5 (legacy)**
+
+### Supported / Tested Devices
+
+* iPhone 4s
+* iPhone 5
+* iPhone 5c
+* iPad 2
+* iPad 3
+* iPad 4
+* Original iPad Mini
 ✅ **Primary test platform:** *iPad 2 (iOS 9.3.5)*
 All quirks, limitations, and notes in this README are based on real testing, primarily on an iPad 2.
 
