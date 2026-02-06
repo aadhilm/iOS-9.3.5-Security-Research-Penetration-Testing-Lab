@@ -21,6 +21,8 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](#)
 
 ---
+✅ **Primary test platform:** *iPad 2 (iOS 9.3.5)*
+All quirks, limitations, and notes in this README are based on real testing, primarily on an iPad 2.
 
 ## 📌 Overview
 
