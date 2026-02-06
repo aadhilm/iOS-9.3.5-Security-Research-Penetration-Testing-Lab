@@ -1,4 +1,7 @@
-# 📱 Jailbroken iOS Security & Penetration Testing Lab
+
+# iOS 9.3.5 Security Research & Penetration Testing Lab
+
+![Status](https://img.shields.io/badge/status-research--only-blue)
 [![Platform](https://img.shields.io/badge/Platform-iOS%209.3.5%20%7C%20Jailbroken-blue)](#)
 [![Devices](https://img.shields.io/badge/Devices-iPhone%20%7C%20iPad-lightgrey)](#)
 [![Legacy iOS](https://img.shields.io/badge/iOS-Legacy%209.3.5-yellow)](#)
@@ -17,174 +20,275 @@
 [![System Utilities](https://img.shields.io/badge/System-Utilities-FF6E00?logo=linux)](https://github.com/topics/system-tools)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](#)
 
-> **A hands-on security lab for networking, hardening, and CTF-style penetration testing on legacy jailbroken iOS devices**
+---
 
-This repository documents a **controlled, educational security lab** built on **old jailbroken iPhones and iPads** running **iOS 9.3.5**. The lab focuses on understanding real-world limitations of legacy iOS, practicing basic penetration testing techniques, and learning how to harden fragile systems without breaking them.
+## 📌 Overview
 
-🚫 **Not for illegal hacking.** This lab is intended **only** for devices you own and environments you are explicitly authorized to test.
+According to my research on jailbreaking **iPad 2 (iOS 9.3.5)**, I have documented my hands-on experience.  
+The **primary purpose of this jailbreak** is **ethical hacking and penetration testing**, not piracy or misuse.
+
+This document covers:
+- Pre‑jailbreak preparation
+- Limitations of non‑jailbroken iOS 9.3.5
+- Phoenix jailbreak behavior and Apple’s security model
+- Cydia issues and recovery
+- SSH, terminal bugs, and fixes
+- Nmap usage on legacy iOS
+- Practical commands and CTF-style workflows
 
 ---
 
-## 🧪 Lab Scope
+## ⚠️ Pre‑Jailbreak Preparation
 
-### Supported iOS Version
+### During Jailbreak
+- Turn **OFF Wi‑Fi & Cellular**
+- **Do NOT power off** the device
+- Ensure **at least 50% battery**
 
-* **iOS 9.3.5 (legacy)**
-
-### Supported / Tested Devices
-
-* iPhone 4s
-* iPhone 5
-* iPhone 5c
-* iPad 2
-* iPad 3
-* iPad 4
-* Original iPad Mini
-
-✅ **Primary test platform:** *iPad 2 (iOS 9.3.5)*
-All quirks, limitations, and notes in this README are based on real testing, primarily on an iPad 2.
+This helps avoid:
+- iOS auto‑updates
+- Certificate revokes during jailbreak
+- Random background processes interfering
 
 ---
 
-## 🎯 Objectives
-
-* Network discovery and enumeration on restricted systems
-* SSH hardening and recovery on jailbroken iOS
-* Understanding legacy crypto and protocol constraints
-* Practicing CTF-style thinking in a safe, local lab
-* Learning how systems fail — and how to recover them
+### Backup (DO NOT SKIP)
+- Use **iTunes / Finder (computer backup)**
+- Safer than iCloud for jailbreaking
+- Ensure backup completes successfully
 
 ---
 
-## ⚠️ Legal & Ethical Notice
-
-* Jailbreak **only devices you own**
-* Scan **only networks and systems you are authorized to test**
-* Jailbroken devices are **fragile** and can bootloop or brick
-
-> Always define a recovery plan *before* modifying system services.
+### Disable Security Features
+- **Find My iPhone** → OFF  
+- **Passcode / Touch ID / Face ID** → OFF  
+- **iCloud** → Sign out (recommended)
 
 ---
 
-## 1️⃣ Immediate Post-Jailbreak Security (DO FIRST)
+### Confirm Compatibility
+- Exact **iOS version**
+- Exact **device model**
+- Jailbreak tool explicitly supports both
 
-### Default SSH Credentials (High Risk)
+❗ If not supported: **STOP**. Updating usually kills jailbreak chances.
 
+---
+
+### Storage & Updates
+- Minimum **2–3 GB free space**
+- Disable auto‑updates:
+  - Settings → General → Software Update → Automatic Updates → OFF
+
+---
+
+### Stable Setup (Computer)
+- Use a good USB cable
+- Avoid USB hubs
+- Don’t touch the device during the process
+
+---
+
+## 📱 Without Jailbreak (iOS 9.3.5 Capabilities)
+
+Without jailbreak:
+- App Store and modern external apps **do not work**
+
+Still usable for:
+- PDF & eBook reading via **iBooks**
+- Very useful for students & researchers
+- No distractions → better focus
+- Web browsing
+- Notes app (cross‑device sync)
+
+### Notes Sync Trick
+If signed in with the same Apple ID on:
+- macOS
+- Newer iOS
+- Android / Windows / Linux (via browser)
+
+You can:
+- Paste links/text into Notes
+- Access them on the old iOS device
+
+Slow but easier than typing long URLs.
+
+---
+
+## 🔓 Jailbreak Behavior (Phoenix)
+
+I jailbroke, reset, and restored the system **15+ times**.  
+Each time resulted in different Cydia and system‑level issues.
+
+### 7‑Day Phoenix Crash (Important)
+- Phoenix crashes after ~7 days
+- Cydia apps also stop opening
+
+This is **not a bug**.  
+It is part of **Apple’s Security Model**.
+
+---
+
+## 🍎 Apple’s Security Model Explained
+
+- iOS runs only **cryptographically signed code**
+- Phoenix cannot be on the App Store
+- Free Apple IDs get **7‑day certificates**
+
+### Developer Programs
+- Apple Developer Program: **$99/year**
+- Apple Developer Enterprise Program: **$299/year**
+  - Not for individuals
+  - Requires organization approval
+
+---
+
+## 🔁 Fixing Phoenix (No Restore Needed)
+
+To fix expired certificates:
+- Re‑install Phoenix with a **new certificate**
+- No system restore required
+
+If device was reset:
+- Restore via iTunes backup
+
+❌ Changing date & time **does NOT work**
+
+---
+
+## ⏱️ How the 7‑Day Limit Works
+
+- Free Apple ID → temporary certificate
+- Certificate expires in 7 days
+- After expiry:
+  - App opens then closes
+  - “Unable to verify app”
+
+Paid developer account:
+- Certificate valid for **1 year**
+
+---
+
+## 🛠 Ways to Deal with This
+
+### Option 1 (Common)
+- Re‑sign Phoenix every 7 days
+- Re‑jailbreak after reboot
+
+### Option 2 (Paid)
+- Use paid developer account
+- Re‑sign once per year
+
+⚠️ No untethered jailbreak exists for iOS 9.3.5.
+
+---
+
+## 💾 Cydia Issues & Fixes
+
+### Common Problems
+- Broken or incompatible repos
+- Repeated jailbreaking corrupts apt/dpkg
+- Cydia & its apps fail to open
+
+### Fix Methods
+- Use **Filza** or **Terminal**
+- If Terminal fails → use **SSH**
+
+### Repo File Paths
+```
+/etc/apt/source.list
+/etc/apt/source.list.d/
+```
+
+Best practices:
+- Remove unused or broken repos
+- Always respring or reboot after changes
+- If dpkg fully breaks → restore required
+
+---
+
+## 📦 Useful Applications
+
+### Core
+- OpenSSH
+- Filza File Manager
+- iCleaner Pro
+
+### Optional
+- VLC
+- ThinStuff
+- xDisplay
+- iRDP
+
+Installed & used:
+- Terminal
+- Filza
+- iCleaner
+- iTransmission
+- ThinStuff
+
+---
+
+## 🖥️ xDisplay Notes
+
+- Mirrors Windows screen only
+- Extend mode does **not** work
+- Requires constant interaction
+- Does **not** work on Linux
+
+---
+
+## 🔐 SSH on iOS 9.3.5
+
+Modern SSH disables `ssh-rsa` by default.
+
+### Working Command (Linux)
+```bash
+ssh -o HostKeyAlgorithms=+ssh-rsa     -o PubkeyAcceptedAlgorithms=+ssh-rsa root@TARGET
+```
+
+### Default Credentials
 ```
 root   : alpine
 mobile : alpine
 ```
 
-### Change Passwords Immediately
-
-```
-passwd root
-passwd mobile
-```
-
-### Legacy SSH Compatibility (iOS 9.3.5)
-
-Modern SSH clients may fail unless legacy algorithms are explicitly enabled:
-
-```
-ssh -o HostKeyAlgorithms=+ssh-rsa \
-    -o PubkeyAcceptedAlgorithms=+ssh-rsa root@TARGET
-```
-
-⚠️ Do **not** expose SSH to the public internet.
-
 ---
 
-## 2️⃣ SSH Hardening (Safe Method)
+## 🔧 Changing SSH Port (Safely)
 
-CLI editors are unreliable on jailbroken iOS.
-
-✅ **Recommended:** *Filza File Manager* (Cydia)
-
-### SSH Config Path
-
+Config file:
 ```
 /etc/ssh/sshd_config
 ```
 
-> Filza may show `/` as `root/` — they refer to the same location.
+⚠️ Rules:
+- Backup before editing
+- Restart SSH daemon
+- Test connection
+- THEN reboot
 
-### Change SSH Port
+Recovery:
+- Revert port to `22`
+- Save & reboot
 
-From:
-
-```
-#Port 22
-```
-
-To:
-
-```
-Port 2222
-```
-
-Save the file and restart SSH or reboot.
-
-> **Rule:** If CLI tools misbehave, trust Filza.
+Never delete `/etc/ssh` or OpenSSH.
 
 ---
 
-## 🔄 SSH Recovery (Critical)
+## 🐞 Terminal Bug (Observed)
 
-If you lock yourself out:
+- Input becomes invisible
+- Terminal freezes after long sessions
 
-1. Open **Filza**
+Workarounds:
+- Restart terminal
+- Keep sessions short
+- Use SSH (recommended)
 
-2. Edit:
-
-   ```
-   /etc/ssh/sshd_config
-   ```
-
-3. Revert to:
-
-   ```
-   Port 22
-   ```
-
-4. Save and reboot
-
-❌ **Never** delete `/etc/ssh` or remove OpenSSH.
+UI bug, not shell failure.
 
 ---
-
-## 3️⃣ Fixing Cydia / dpkg / apt
-
-Common issues include broken installs and dpkg locks.
-
-```
-apt-get update
-apt-get -f install
-dpkg --configure -a
-apt-get clean
-```
-
-💡 SSH from another device is significantly more stable than on-device terminals.
-
----
-
-## 4️⃣ Known Terminal Bug (iOS 9.3.5)
-
-### Symptoms
-
-* Invisible input while typing
-* Terminal freezes after long sessions
-
-### Workarounds
-
-* Restart terminal app
-* Keep local sessions short
-* ✅ Use SSH from another device (recommended)
-
-This is a **UI bug**, not a shell failure.
-
----
-
 ## 🎥 Video Demonstrations (Real Device)
 
 The following videos document real behavior on a jailbroken iOS 9.3.5 device and are included for transparency and troubleshooting reference.
@@ -230,158 +334,225 @@ These videos intentionally avoid SYN scans, UDP scans, and NSE scripts due to ra
 
 ---
 
-## 5️⃣ Minimal Tooling Philosophy
+## 🧪 Nmap on Legacy iOS
 
-### Core
+### Limitations
+- ICMP blocked
+- Raw sockets restricted
+- Only TCP connect scans work
 
-* OpenSSH
-* Filza File Manager
-* iCleaner Pro
-
-### Optional (Media / Remote)
-
-* VLC
-* ThinStuff
-* xDisplay
-* iRDP
-
-⚠️ Keep repositories minimal and trusted.
-
----
-
-## 6️⃣ Crypto Basics (CTF-Oriented)
-
-### Encrypt a Flag
-
-```
-echo "FLAG{example}" > secret.txt
-openssl enc -aes-256-cbc -salt -a \
-  -in secret.txt -out secret.txt.enc
-rm secret.txt
-```
-
-### Decrypt
-
-```
-openssl enc -aes-256-cbc -a -d \
-  -in secret.txt.enc -out secret.txt
-```
-
----
-
-## 7️⃣ Nmap on Legacy iOS (Important Limitations)
-
-On iOS 9.3.5:
-
-* ICMP is blocked
-* Raw sockets are restricted
-
-✅ **Only TCP connect scans work reliably**.
-
-### Safe Commands
-
-```
+### Working Commands
+```bash
 nmap -n -sT TARGET
 nmap -n -sT -PN TARGET
 nmap -n -sT --max-retries=0 TARGET
 ```
 
-❌ Avoid:
-
-* SYN scans (`-sS`)
-* UDP scans (`-sU`)
-* OS detection (`-O`)
-* NSE scripts
-
----
-
-## 8️⃣ TCP-Based Network Sweep
-
-```
+### Network Sweep
+```bash
 nmap -n -sT -PN -p 22,80,443 SUBNET
 ```
 
-Fast sweep:
+---
+
+## 📊 Test Report (Localhost)
 
 ```
+22/tcp     open  ssh
+1053/tcp   filtered unknown
+1080/tcp   open  socks
+1083/tcp   open  ansoft-Im-1
+8021/tcp   open  ftp-proxy
+11111/tcp  open  unknown
+62078/tcp  open  iphone-sync
+```
+---
+
+
+# 🛠️ Tested & Working Commands (CTF / iOS / Network Lab)
+> ⚠️ **Disclaimer**: All commands are intended for **educational and authorized testing only**.
+
+
+---
+
+## 🔍 Nmap – Working Commands
+
+```bash
+nmap -n -sT TARGET
+nmap -n -sT -PN TARGET
+nmap -n -sT --max-retries=0 TARGET
+nmap -n -sT -PN -p 22,80,443 SUBNET
 nmap -n -sT -PN --max-retries=0 -p 80 SUBNET
 ```
 
 ---
 
-## 9️⃣ CTF-Style Lab Workflow
+## 🖥️ System Info
 
-### Phase 1: Discovery
-
+```bash
+uname -a
+sw_vers
+date
+sysctl kern.version
+sysctl kern.uuid
+sysctl hw.machine
+sysctl hw.cputype
+sysctl hw.cpusubtype
+sysctl -a | head
+pagesize
 ```
-nmap -n -sT -PN TARGET
-```
-
-### Phase 2: Authorized Access
-
-```
-ssh user@TARGET
-```
-
-### Phase 3: Enumeration
-
-```
-find / -name "*.enc" 2>/dev/null
-```
-
-### Phase 4: Decryption
-
-```
-openssl enc -aes-256-cbc -a -d -in flag.enc -out flag.txt
-```
-
-🚩 Flag captured
 
 ---
 
-## 🔥 Progressive CTF Scenarios
+## 💾 Memory & Storage
 
-* Hidden SSH ports
-* Fake flags and misdirection
-* Password reuse logic
-* Permission barriers (root-only flags)
-* Noise-heavy environments
-
-Each level emphasizes **analysis over exploitation**.
-
----
-
-## ❌ Things That Will Break Your Device
-
-* Deleting system files
-* Random scripts from forums
-* Pirated tweaks
-* Repo hoarding
-* Public SSH exposure
-* Leaving default passwords
+```bash
+df -h
+df -h /
+du
+vm_stat
+zprint
+```
 
 ---
 
-## 🧭 Terminal Environment Comparison
+## ⚙️ Process Management
 
-### App Store Terminal
-- Sandbox only  
-- ❌ No root  
-- ❌ No system files  
-- ❌ No real `apt` / daemons  
-- Safe, limited, for learning commands  
+```bash
+ps aux
+ps aux | grep -i springboard
+ps aux | grep /var/mobile/Applications/
+```
 
-### Jailbreak Terminal
-- Real system shell  
-- ✅ Root access  
-- ✅ Full iOS filesystem  
-- ✅ Real `apt`, SSH, services  
-- Powerful, risky if careless  
+---
 
+## 🌐 Network
 
-## ✅ Final Notes
+```bash
+ipconfig getifaddr en0
+```
 
-> Jailbroken iOS devices are **powerful, constrained, and unforgiving**.
->
-> Move slowly. Document changes. Always preserve SSH access.
-> The goal is learning — not speed.
+---
+
+## 📁 Filesystem Exploration
+
+```bash
+find . -type d | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/"
+find . -maxdepth 3 -type d | sort
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'
+```
+
+---
+
+## 🧪 File Test
+
+```bash
+dd if=/dev/zero of=/tmp/test bs=1M count=100
+```
+
+---
+
+## 🔓 Jailbreak / UI (iOS)
+
+```bash
+ldrestart
+uicache
+PS1='[root@ios9 ~]# '
+clear
+```
+
+---
+
+## 🎉 Fun / Terminal Effects
+
+```bash
+for i in 5 4 3 2 1; do echo $i; sleep 1; done
+yes YOURNAME | head -n 20
+echo "Your jailbreak will survive… maybe."
+echo "iOS 9.3.5 > iOS 17 (fight me)"
+```
+
+---
+
+## 🕶️ Fake Hack Sequence
+
+```bash
+echo "Connecting to NSA server..."
+sleep 2
+echo "Bypassing firewall..."
+sleep 2
+echo "Access granted ■"
+```
+
+---
+
+## 🔢 Random Data
+
+```bash
+cat /dev/urandom
+cat /dev/urandom | tr -dc '01' | fold -w 80
+```
+
+---
+
+## 📊 Monitor Loop
+
+```bash
+while true; do
+  date
+  df -h /
+  vm_stat | head -5
+  sleep 2
+done
+```
+
+---
+
+## 🔐 Crypto Basics (CTF-Oriented)
+
+### Encrypt a Flag
+
+```bash
+echo "FLAG{example}" > secret.txt
+openssl enc -aes-256-cbc -salt -a   -in secret.txt -out secret.txt.enc
+rm secret.txt
+```
+
+### Decrypt
+
+```bash
+openssl enc -aes-256-cbc -a -d   -in secret.txt.enc -out secret.txt
+```
+
+---
+
+## 🏁 CTF Lab Workflow
+
+---
+
+## ⚠️ Things That Will Break Your Device
+
+- Deleting system files
+- Pirated tweaks
+- Random scripts
+- Repo hoarding
+- Public SSH exposure
+- Default passwords
+
+---
+
+## 🔄 Phoenix Jailbreak Notes
+
+- Semi‑tethered
+- Reboot disables jailbreak
+- Must re‑run Phoenix
+- Tweaks load only after re‑jailbreak
+
+---
+
+## 📜 Disclaimer
+
+This project is for **educational and research purposes only**.  
+All testing was performed on personally owned hardware.
+
+---
