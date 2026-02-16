@@ -18,6 +18,19 @@
 [![System Utilities](https://img.shields.io/badge/System-Utilities-FF6E00?logo=linux)](https://github.com/topics/system-tools)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](#)
 
+---
+
+## Disclaimer
+
+This repository is for **educational and ethical security research purposes only**.
+
+All testing was performed on **authorized, personally owned devices** in controlled environments.  
+Do **not** use this material on systems or devices without explicit permission.
+
+The author is **not responsible** for misuse, damage, or legal consequences resulting from the use of this content.
+
+---
+
 **Purpose: Ethical Hacking & Security Research**
 
 This document is based entirely on personal testing and repeated experiments performed on an iPad 2 running iOS 9.3.5.  
@@ -215,16 +228,6 @@ Recommended Mitigations:
 This is a user interface bug, not a shell or system failure.
 
 ---
-
-## Conclusion
-
-This research demonstrates that legacy Apple devices running iOS 9.3.5—particularly the iPad 2—remain technically capable of supporting structured security experimentation within controlled and authorized environments.
-
-From a modern cybersecurity perspective, iOS 9.3.5 devices should not be deployed in production environments.
-
-Their present-day value lies primarily in education, historical security analysis, controlled lab experimentation, and legacy platform research.
-
----
 ## 🎥 Video Demonstrations (Real Device)
 
 The following videos document real behavior on a jailbroken iOS 9.3.5 device and are included for transparency and troubleshooting reference.
@@ -267,6 +270,15 @@ https://drive.google.com/file/d/1K4UNADtX0v_I9rSHr3oDTWV5kkIuMqLp/view
 
 
 These videos intentionally avoid SYN scans, UDP scans, and NSE scripts due to raw socket restrictions on iOS.
+
+---
+## Conclusion
+
+This research demonstrates that legacy Apple devices running iOS 9.3.5—particularly the iPad 2—remain technically capable of supporting structured security experimentation within controlled and authorized environments.
+
+From a modern cybersecurity perspective, iOS 9.3.5 devices should not be deployed in production environments.
+
+Their present-day value lies primarily in education, historical security analysis, controlled lab experimentation, and legacy platform research.
 
 ---
 ## Future Work
