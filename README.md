@@ -331,11 +331,18 @@ Beyond technical research, this work also focuses on helping people who still ow
 With the right mindset, old devices can become low-cost security training platforms rather than being discarded.
 
 ---
+
 ## Future Work
 
 Research on iOS 9.3.5 remains ongoing.
 
 Materials, scripts, and command collections for iOS 9.3.5 are being published and maintained on GitHub:  
-https://github.com/aadhilm/iOS-9.3.5-Security-Research-Penetration-Testing-Lab
+https://github.com/aadhilm/iOS-9.3.5-Security-Research-Penetration-Testing
+
+Verified & Tested Commands  
+https://github.com/aadhilm/iOS-9.3.5-Security-Research-Penetration-Testing/blob/main/COMMANDS.md
+
+CTF Lab  
+https://github.com/aadhilm/iOS-9.3.5-Security-Research-Penetration-Testing/blob/main/LAB.md
 
 The objective is not modernization, but responsible repurposing—using controlled lab environments and openly shared materials to extract meaningful educational and research value from this legacy mobile platform.
