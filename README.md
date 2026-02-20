@@ -31,28 +31,73 @@ The author is **not responsible** for misuse, damage, or legal consequences resu
 
 ---
 
-**Purpose: Ethical Hacking & Security Research**
 
-This document is based entirely on personal testing and repeated experiments performed on an iPad 2 running iOS 9.3.5.  
-Over the course of this research, the device was jailbroken, reset, and restored more than 80 times.  
+**Purpose:** Ethical Hacking, Security Research & Device Repurposing
+
+This research is not only about Ethical Hacking.
+It is also about helping people who still own old Apple devices that can no longer run modern apps.
+Many users still have these devices, but they feel “useless” today.
+
+This document is based entirely on personal testing and repeated experiments performed on an iPad 2 running iOS 9.3.5.
+Over the course of this research, the device was jailbroken, reset, and restored more than 80 times.
 Each iteration exposed different behaviors, command failures, system instabilities, and multiple critical issues originating from Cydia and Cydia-installed applications. All observations documented here are derived from real-world testing — not theory.
+
+Using Phoenix Jailbreak and Cydia, the device becomes a Unix-like environment.
 
 ---
 
-## Devices That Actually Support iOS 9.3.5
+## Important Clarification
+
+Jailbreaking does **not** convert iOS into a full Linux system.
+The device still runs Apple’s XNU kernel, which restricts:
+- Raw sockets
+- ICMP scanning
+- Advanced packet crafting
+
+All testing was done on personally owned devices in a controlled lab environment.
+
+---
+
+## Devices That Actually Affected and Support iOS 9.3.5
+
+These Apple devices are stuck on iOS 9.3.5 (or 9.3.6 for some models):
 
 ### Supported Devices
-- iPhone 4s  
-- iPhone 5  
-- iPhone 5c  
-- iPad 2  
-- iPad 3  
-- iPad 4  
+- iPhone 4s
+- iPhone 5
+- iPhone 5c
+- iPad 2
+- iPad 3
+- iPad 4
 
 ### Tested Devices
-✅ Primary Test Platform: iPad 2 (iOS 9.3.5)
+- ✅ **Primary Test Platform:** iPad 2 (iOS 9.3.5)
 
 This research primarily targets legacy 32-bit A5/A6 devices whose final supported firmware is iOS 9.3.5.
+
+---
+
+## Limitations of iOS 9.3.5 Devices
+
+### 32-bit Architecture
+- Uses 32-bit processors
+- Apple ended 32-bit support after iOS 10
+- Modern apps are 64-bit only
+- Most current apps cannot run
+
+### TLS / HTTPS Issues
+- Modern services require TLS 1.2 or TLS 1.3
+- iOS 9 uses outdated cryptographic libraries
+- Causes broken websites, HTTPS failures, and app connection issues
+
+### App Store Restrictions
+- Most apps require iOS 13 or later
+- App Store blocks installations
+- Developers no longer support iOS 9
+
+### Security Risks
+- No security updates
+- Do not use for banking, sensitive work, secure communication, or storing credentials
 
 ---
 
@@ -274,11 +319,16 @@ These videos intentionally avoid SYN scans, UDP scans, and NSE scripts due to ra
 ---
 ## Conclusion
 
-This research demonstrates that legacy Apple devices running iOS 9.3.5—particularly the iPad 2—remain technically capable of supporting structured security experimentation within controlled and authorized environments.
+This research demonstrates that legacy Apple devices running iOS 9.3.5—particularly the iPad 2—remain technically capable of supporting structured and authorized security experimentation.
 
-From a modern cybersecurity perspective, iOS 9.3.5 devices should not be deployed in production environments.
+Beyond technical research, this work also focuses on helping people who still own old Apple devices that can no longer run modern applications. Instead of becoming electronic waste, these devices can be responsibly repurposed as:
+- Cybersecurity learning platforms
+- Network experimentation labs
+- File system exploration systems
+- Legacy system research tools
+- Educational devices
 
-Their present-day value lies primarily in education, historical security analysis, controlled lab experimentation, and legacy platform research.
+With the right mindset, old devices can become low-cost security training platforms rather than being discarded.
 
 ---
 ## Future Work
